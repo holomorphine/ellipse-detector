@@ -283,7 +283,7 @@ class EllipseDetectorApp(tk.Tk):
             self.update_images()
             self.status_bar.config(text=f"Загружено изображение: {os.path.basename(image_path)}")
         except Exception as e:
-            messagebox.showerror('Ошибка', 'Не удалось загрузить изображение!')
+            messagebox.showerror('Ошибка', f"Не удалось загрузить изображение! \n{str(e)}")
 
     def load_image(self):
         file_path = filedialog.askopenfilename(
@@ -294,7 +294,7 @@ class EllipseDetectorApp(tk.Tk):
                 self.create_detector(os.path.normpath(file_path))
             except Exception as e:
                 self.status_bar.config(text='Ошибка загрузки изображения')
-                messagebox.showerror('Ошибка', 'Не удалось загрузить изображение!')
+                messagebox.showerror('Ошибка', f"Не удалось загрузить изображение! \n{str(e)}")
 
     def save_result(self):
         if self.current_result_image is None:

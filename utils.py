@@ -1,5 +1,6 @@
 import os
 import cv2
+import numpy as np
 from defaults import RESIZE_WIDTH, MIN_KERNEL_SIZE
 
 
@@ -29,11 +30,20 @@ def resize_image(image):
 
 
 def load_image(path):
-    if not (os.path.exists(path) and is_valid_image_extension(path)):
-        return None
+    try:
+        with open(path, 'rb') as f:
+            file_bytes = f.read()
 
-    image = cv2.imread(path)
-    return resize_image(image)
+        np_array = np.frombuffer(file_bytes, np.uint8)
+        image = cv2.imdecode(np_array, cv2.IMREAD_COLOR)
+
+        if image is None:
+            return None
+
+        return resize_image(image)
+
+    except Exception:
+        return None
 
 
 def is_valid_image_extension(path):
