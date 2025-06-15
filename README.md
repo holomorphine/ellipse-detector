@@ -11,22 +11,28 @@
 
 ### Установка
 
-1. Установка зависимостей
+#### Linux:
+1. **Установка зависимостей:**
+    ```bash
+    sudo apt install python3-numpy python3-opencv python3-pil python3-ttkthemes python3-pil.imagetk python3-tk
+    ```
 
-```bash
-pip install -r requirements.txt
-```
-либо
+2. **Запуск приложения:**
+    ```bash
+    python3 main.py
+    ```
 
-```bash
-pip install opencv-python numpy pillow ttkthemes
-```
 
-2. Запуск приложения
+#### Windows:
+1. **Установка зависимостей:**
+   ```bash
+   pip install numpy opencv-python pillow ttkthemes
+   ```
 
-```bash
-python main.py
-```
+2. **Запуск приложения:**
+   ```bash
+   python main.py
+   ```
 
 ## Описание приложения
 
